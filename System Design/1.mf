@@ -1,0 +1,52 @@
+1. Scalability: https://lnkd.in/gfR-fAXN
+2. Availability: https://lnkd.in/gaMJAyiT
+3. Consistent Hashing: https://lnkd.in/gg6ujGmw
+4. CAP Theorem: https://lnkd.in/g56RJzDN
+5. TCP vs UDP: https://lnkd.in/d-vW3_jn
+6. DNS: https://lnkd.in/gFBXmN9R
+7. Proxy vs Reverse Proxy: https://lnkd.in/db95eMd2
+8. Load Balancing Algorithms: https://lnkd.in/gvxfwEUr
+9. APIs: https://lnkd.in/g7WcA3yS
+10. API Gateways: https://lnkd.in/dH5yzk_V
+11. Rate Limiting: https://lnkd.in/gYDxg8XY
+12. JWT: https://lnkd.in/g4YUMe5P
+13. WebSockets: https://lnkd.in/dJ7f287B
+14. Webhooks: https://lnkd.in/gt-6Gjus
+15. Message Queues: https://lnkd.in/gFHKHpMD
+16. Change Data Capture (CDC): https://lnkd.in/gGEn8sFJ
+17. Caching Strategies: https://lnkd.in/gS679kwf
+18. Content Delivery Network (CDN): https://lnkd.in/gkduKz2D
+19. Database Types: https://lnkd.in/dR56cwrB
+20. ACID Transactions: https://lnkd.in/gKbBX5Uh
+21. Indexing: https://lnkd.in/gunMNQZu
+22. Sharding: https://lnkd.in/gMm8hBKB
+23. Block vs File vs Object Storage: https://lnkd.in/dUymGUhv
+24. Strong vs Eventual Consistency: https://lnkd.in/g3rsgFsS
+25. Service Discovery: https://lnkd.in/d4PNtY-i
+26. Batch vs Stream Processing: https://lnkd.in/gWJ9YeGq
+27. Observability: https://lnkd.in/dk_zQrZz
+28. Authentication & Authorization: https://lnkd.in/dVURC7DC
+29. Idempotency: https://lnkd.in/gkhCtCRj
+30. GeoHashing: https://lnkd.in/gjSbKdpN
+
+𝗧𝗼𝗽 𝗙𝗿𝗲𝗲 𝗥𝗲𝘀𝗼𝘂𝗿𝗰𝗲𝘀 𝗳𝗼𝗿 𝗦𝘆𝘀𝘁𝗲𝗺 𝗗𝗲𝘀𝗶𝗴𝗻:
+1. One-stop system design:
+ - https://lnkd.in/dte69Z5N
+
+2. Cheat Sheet for Design Patterns by GeeksforGeeks: 
+ - https://lnkd.in/d-9rWqER
+
+3. 19 Microservices Patterns (Perfect for Interviews)
+ - https://lnkd.in/dSxEUQ24
+
+4. Keerti Purswani’s Playlist (Beginner Friendly)
+ - https://lnkd.in/dAHdf8u5
+
+5. Learn Code with Durgesh System Design in Hindi
+ - https://lnkd.in/dxRTRApp
+
+6. Shrayansh Jain: All Creational Design Patterns
+ - https://lnkd.in/dzADphUV
+
+7. Design Patterns (with visuals) SourceMaking: 
+ - https://lnkd.in/dqg2SQAF

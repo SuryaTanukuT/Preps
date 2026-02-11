@@ -1,0 +1,4 @@
+- SameSite cookies
+- CSRF tokens
+- Double-submit cookies
+- Avoiding cookies for APIs (use JWT)

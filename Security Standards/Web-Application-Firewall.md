@@ -1,0 +1,5 @@
+- SQLi
+- XSS
+- CSRF
+- Bot attacks
+- L7 DDoS
