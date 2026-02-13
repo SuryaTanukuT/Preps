@@ -1,0 +1,1 @@
+React handles events via props like onClick and onChange. Handlers receive a SyntheticEvent that behaves like a DOM event, supporting preventDefault and stopPropagation, and events bubble/capture normally. For forms I use controlled components, and for large lists I may use delegation or stable callbacks when memoization matters.

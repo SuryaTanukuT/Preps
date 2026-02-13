@@ -1,0 +1,1 @@
+Hydration is React attaching event handlers and state to server-rendered HTML so it becomes interactive; hydration errors occur when server and initial client markup don’t match, usually due to client-only or non-deterministic values during render. 
