@@ -1,4 +1,3 @@
-Excellent, Surya — this is **core async mastery** that interviewers use to judge **real backend engineering maturity**, not just syntax knowledge. Let’s go from **what async/await is → how async flows are designed in production systems**.
 
 ---
 

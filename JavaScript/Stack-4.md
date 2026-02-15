@@ -1,4 +1,4 @@
-Excellent topic, Surya — this is **senior backend + frontend + security interview gold**. I’ll cover **major JavaScript security attacks**, how they **work internally**, **real examples**, and **production-grade defenses** (browser + Node.js).
+
 ---
 # Security Attacks in JavaScript — Deep, Practical Guide
 ---

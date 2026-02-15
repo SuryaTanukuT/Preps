@@ -1,7 +1,3 @@
-# 🧠 JavaScript Advanced Deep Dive — Interview Master Guide (Part-2 Format)
-
-> Every topic follows the exact structure:
-> **What it is → Where it applies → Where it does NOT → Core Principles → Mental Model → Examples → Use cases & Best practices → Tricky edge cases → Interview questions**
 
 ---
 
@@ -3013,5 +3009,4 @@ let x = 1;
 
 ---
 
-## Next step (so it becomes your “Part-2 document” fully)
 

@@ -1,36 +1,3 @@
-# 🧠 JavaScript Deep Dive — Interview Master Guide
-
-> Complete reference for JS internals, closures, scope, async, OOP, and V8 internals.  
-> Every topic: **What it is → Where it applies → Types/Methods → Why it exists → Mental Model → Examples → Edge Cases → Interview Questions**
-
----
-
-## Table of Contents
-
-1. [Temporal Dead Zone (TDZ)](#1-temporal-dead-zone-tdz)
-2. [var vs let vs const](#2-var-vs-let-vs-const)
-3. [Scope](#3-scope)
-4. [Hoisting](#4-hoisting)
-5. [Scope Chain](#5-scope-chain)
-6. [Block Scope](#6-block-scope)
-7. [Shadowing & Illegal Shadowing](#7-shadowing--illegal-shadowing)
-8. [Closures (Deep)](#8-closures-deep-explanation)
-9. [OOP in JavaScript](#9-oop-in-javascript)
-10. [Factory Functions](#10-factory-functions)
-11. [Memoization / Caching](#11-memoizationcaching)
-12. [Event Handlers](#12-event-handlers)
-13. [Async Callbacks](#13-async-callbacks)
-14. [Module Patterns](#14-module-patterns)
-15. [setTimeout + Closures](#15-settimeout--closures)
-16. [IIFE & IIFE + Closures](#16-iife--iife--closures)
-17. [First-Class Functions](#17-first-class-functions)
-18. [Timers in JS](#18-timers-in-js)
-19. [Higher-Order Functions (HOF)](#19-higher-order-functions-hof)
-20. [map, filter, reduce (Deep)](#20-map-filter-reduce-deep)
-21. [this Keyword](#21-this-keyword)
-22. [Arrow Functions](#22-arrow-functions)
-23. [V8 Internals: Lexical Scope, Scope Tree, Deopt Killers](#23-v8-internals)
-24. [Garbage Collection (GC)](#24-garbage-collection-gc)
 
 ---
 
@@ -2860,5 +2827,3 @@ function visit(obj) {
 - [ ] Null out large object references when done
 
 ---
-
-*Last updated: 2026 | Covers ES2022+ features including private class fields, optional chaining, and nullish coalescing*

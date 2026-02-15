@@ -3641,8 +3641,3 @@ Smaller container, fewer attack surface.
 * **pnpm**: very fast + disk efficient (content-addressed store), great monorepos
 
 If you’re in monorepos, pnpm is often the best choice today.
-
----
-
-If you tell me your setup (single repo vs monorepo, Node version, Docker/K8s or not), I’ll suggest the cleanest standard: `.nvmrc + engines + npm ci + lockfile policy + update strategy`.
-

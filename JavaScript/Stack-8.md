@@ -1,4 +1,3 @@
-Perfect — this is **core async mastery for strong backend / Node.js interviews**. I’ll cover **what Promises are, types, when to use them, advantages, disadvantages, and all important Promise methods** with **clear mental models + examples**.
 
 ---
 
