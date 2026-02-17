@@ -1,0 +1,1 @@
+https://www.loginradius.com/authenticate/nodejs/pingfederate
