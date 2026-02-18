@@ -1,3 +1,5 @@
+https://codewithpawan.medium.com/mongodb-interview-questions-from-beginners-to-advance-part-1-8c4b8c02f63e
+https://github.com/Devinterview-io/mongodb-interview-questions
 
 ## 1) MongoDB vs Amazon DynamoDB vs Apache Cassandra (BFSI-grade comparison)
 

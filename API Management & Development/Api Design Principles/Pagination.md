@@ -61,3 +61,9 @@ Used in:
 * Twitter
 * LinkedIn
 * Banking dashboards
+
+
+https://www.mulesoft.com/api/design/api-pagination-patterns
+https://apisyouwonthate.com/blog/api-design-basics-pagination/
+https://dev.to/pragativerma18/unlocking-the-power-of-api-pagination-best-practices-and-strategies-4b49
+https://medium.com/@khanshahid9283/mastering-api-pagination-best-practices-for-performance-scalability-ca16980bc8f0

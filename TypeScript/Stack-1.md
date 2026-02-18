@@ -1,4 +1,5 @@
 https://www.typescriptlang.org/docs/
+https://github.com/Devinterview-io/typescript-interview-questions
 
 # TypeScript (High-Level Interview + Practical Notes)
 

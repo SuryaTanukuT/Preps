@@ -22,7 +22,8 @@ Ensure only the right users/services can access the right resources.
 ---
 
 ## ✅ Authorization (What can you do?)
-
+https://dev.to/zenstack/authorize-users-like-a-pro-libraries-that-help-you-implement-access-control-with-nodejs-5109
+https://medium.com/@onakoyak/how-to-implement-attribute-based-access-control-abac-in-nestjs-402245193940
 * RBAC (Role-Based Access Control)
 * ABAC (Attribute-Based Access Control)
 * Scope-based access
@@ -86,4 +87,6 @@ Always include:
 * OpenTelemetry
 * ELK
 * Prometheus
+https://frontegg.com/guides/access-control-in-security
 
+https://pathlock.com/learn/user-access-controls-11-best-practices-for-businesses/
