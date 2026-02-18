@@ -1,4 +1,3 @@
-
 ---
 
 ## 1. Temporal Dead Zone (TDZ)
@@ -9,15 +8,15 @@ The **Temporal Dead Zone** is the period between the *start of a block scope* an
 
 ### Where It Applies
 
-- `let` declarations
-- `const` declarations
-- `class` declarations (yes, classes have TDZ too!)
-- Default function parameter expressions (partially)
+* `let` declarations
+* `const` declarations
+* `class` declarations (yes, classes have TDZ too!)
+* Default function parameter expressions (partially)
 
 ### Where It Does NOT Apply
 
-- `var` declarations (hoisted and initialized to `undefined`)
-- Function declarations (fully hoisted with their body)
+* `var` declarations (hoisted and initialized to `undefined`)
+* Function declarations (fully hoisted with their body)
 
 ### Why TDZ Exists
 
@@ -89,20 +88,23 @@ foo();
 
 ### Use Cases and Best Practices
 
-- Always declare `let`/`const` at the **top of their block** to avoid TDZ surprises
-- TDZ is a feature, not a bug — it forces disciplined variable usage
-- Helps identify circular dependencies in modules (module loading TDZ)
+* Always declare `let`/`const` at the **top of their block** to avoid TDZ surprises
+* TDZ is a feature, not a bug — it forces disciplined variable usage
+* Helps identify circular dependencies in modules (module loading TDZ)
 
 ### Real Interview Questions
 
 **Q1:** What is the output?
+
 ```javascript
 console.log(typeof a); // ?
 let a = 5;
 ```
+
 **Answer:** `ReferenceError` — `typeof` does NOT bypass TDZ for `let`/`const`.
 
 **Q2:** What is the output?
+
 ```javascript
 let a = 10;
 {
@@ -110,22 +112,27 @@ let a = 10;
   let a = 20;
 }
 ```
+
 **Answer:** `ReferenceError` — the inner `let a` creates a new TDZ in the block, shadowing the outer `a`.
 
 **Q3:** Does TDZ apply to function parameters?
+
 ```javascript
 function foo(a = b, b = 2) {
   return a + b;
 }
 foo(); // ?
 ```
+
 **Answer:** `ReferenceError` — `b` is in TDZ when `a`'s default is evaluated left-to-right.
 
 **Q4:** Does this throw?
+
 ```javascript
 class Foo {}
 const f = new Foo(); // ?
 ```
+
 **Answer:** No — the `class` declaration comes first. But reversing the order throws `ReferenceError`.
 
 ---
@@ -136,14 +143,14 @@ const f = new Foo(); // ?
 
 Three ways to declare variables in JavaScript with different scoping, hoisting, and mutability behaviors.
 
-| Feature | `var` | `let` | `const` |
-|---|---|---|---|
-| Scope | Function/Global | Block | Block |
-| Hoisting | Yes (→ `undefined`) | Yes (→ TDZ) | Yes (→ TDZ) |
-| Re-declaration | ✅ Allowed | ❌ Same scope | ❌ Same scope |
-| Re-assignment | ✅ Allowed | ✅ Allowed | ❌ Not allowed |
-| Global property | Yes (`window.x`) | No | No |
-| TDZ | No | Yes | Yes |
+| Feature         | `var`               | `let`        | `const`       |
+| --------------- | ------------------- | ------------ | ------------- |
+| Scope           | Function/Global     | Block        | Block         |
+| Hoisting        | Yes (→ `undefined`) | Yes (→ TDZ)  | Yes (→ TDZ)   |
+| Re-declaration  | ✅ Allowed           | ❌ Same scope | ❌ Same scope  |
+| Re-assignment   | ✅ Allowed           | ✅ Allowed    | ❌ Not allowed |
+| Global property | Yes (`window.x`)    | No           | No            |
+| TDZ             | No                  | Yes          | Yes           |
 
 ### `var` — Function-Scoped
 
@@ -203,9 +210,9 @@ arr = [1, 2];     // ❌ TypeError
 
 ### Mental Model for Choosing
 
-- Use `const` by default
-- Use `let` only when you need to reassign
-- Avoid `var` in modern JavaScript (it leaks scope)
+* Use `const` by default
+* Use `let` only when you need to reassign
+* Avoid `var` in modern JavaScript (it leaks scope)
 
 ### Tricky Edge Cases
 
@@ -241,6 +248,7 @@ switch (val) {
 ### Real Interview Questions
 
 **Q1:** What is the output?
+
 ```javascript
 var x = 1;
 function foo() {
@@ -249,6 +257,7 @@ function foo() {
 }
 foo();
 ```
+
 **Answer:** `undefined` — `var x` inside `foo` is hoisted to top of `foo` as `undefined`, shadowing the outer `x`.
 
 **Q2:** Is `const` truly immutable?
@@ -268,6 +277,7 @@ foo();
 ### Types of Scope
 
 #### 1. Global Scope
+
 Variables declared outside any function or block. Accessible everywhere.
 
 ```javascript
@@ -282,6 +292,7 @@ function foo() {
 > `var` at global level becomes a property of `window` (browsers). `let`/`const` do not.
 
 #### 2. Function Scope
+
 Variables declared inside a function. Only accessible within that function.
 
 ```javascript
@@ -293,6 +304,7 @@ console.log(message); // ❌ ReferenceError
 ```
 
 #### 3. Block Scope (ES6+)
+
 Variables declared with `let`/`const` inside `{}`. Only accessible within that block.
 
 ```javascript
@@ -304,6 +316,7 @@ console.log(blockVar); // ❌ ReferenceError
 ```
 
 #### 4. Module Scope
+
 In ES modules (`.mjs` or `type="module"`), top-level code has module scope, not global scope.
 
 ```javascript
@@ -313,6 +326,7 @@ export const public = "visible";
 ```
 
 #### 5. Lexical Scope
+
 Inner functions can access variables of outer functions.
 
 ```javascript
@@ -327,15 +341,15 @@ function outer() {
 
 ### Where Scope Applies / Doesn't Apply
 
-| Construct | Creates Scope? |
-|---|---|
-| `function` | ✅ Yes (function scope) |
+| Construct                        | Creates Scope?                          |
+| -------------------------------- | --------------------------------------- |
+| `function`                       | ✅ Yes (function scope)                  |
 | `if`, `for`, `while` blocks `{}` | ✅ Yes for `let`/`const`, ❌ No for `var` |
-| `try/catch` blocks | ✅ Yes for `let`/`const` |
-| Arrow functions | ✅ Yes (own scope but no `this`) |
-| `class` body | ✅ Yes |
-| Plain `{}` | ✅ Yes for `let`/`const` |
-| Object literals `{}` | ❌ No scope created |
+| `try/catch` blocks               | ✅ Yes for `let`/`const`                 |
+| Arrow functions                  | ✅ Yes (own scope but no `this`)         |
+| `class` body                     | ✅ Yes                                   |
+| Plain `{}`                       | ✅ Yes for `let`/`const`                 |
+| Object literals `{}`             | ❌ No scope created                      |
 
 ### Mental Model
 
@@ -376,15 +390,15 @@ Think of scope as **nested boxes**. Inner boxes can see everything in outer boxe
 
 ### What Gets Hoisted
 
-| Declaration Type | Hoisted? | Initialized To |
-|---|---|---|
-| `var` declaration | ✅ Yes | `undefined` |
-| `var` initialization | ❌ No | — |
-| `function` declaration | ✅ Yes | Full function body |
-| `function` expression (`var f = function()`) | ✅ var only | `undefined` |
-| Arrow function (`const f = () => {}`) | ✅ const only | TDZ |
-| `let` / `const` | ✅ Yes (declared) | TDZ (not initialized) |
-| `class` declaration | ✅ Yes (declared) | TDZ |
+| Declaration Type                             | Hoisted?         | Initialized To        |
+| -------------------------------------------- | ---------------- | --------------------- |
+| `var` declaration                            | ✅ Yes            | `undefined`           |
+| `var` initialization                         | ❌ No             | —                     |
+| `function` declaration                       | ✅ Yes            | Full function body    |
+| `function` expression (`var f = function()`) | ✅ var only       | `undefined`           |
+| Arrow function (`const f = () => {}`)        | ✅ const only     | TDZ                   |
+| `let` / `const`                              | ✅ Yes (declared) | TDZ (not initialized) |
+| `class` declaration                          | ✅ Yes (declared) | TDZ                   |
 
 ### How JavaScript Compiles Code (2 Phases)
 
@@ -470,17 +484,20 @@ if (true) {
 ### Real Interview Questions
 
 **Q1:** What is the output?
+
 ```javascript
 foo();
 var foo = function() { console.log("A"); };
 function foo() { console.log("B"); }
 foo();
 ```
+
 **Answer:** `"B"` then `"A"`.
-- After hoisting: `function foo(){"B"}` takes priority over `var foo`
-- First `foo()` → `"B"` (function declaration)
-- `foo = function(){"A"}` reassigns
-- Second `foo()` → `"A"` (function expression)
+
+* After hoisting: `function foo(){"B"}` takes priority over `var foo`
+* First `foo()` → `"B"` (function declaration)
+* `foo = function(){"A"}` reassigns
+* Second `foo()` → `"A"` (function expression)
 
 **Q2:** Are `let`/`const` hoisted?
 **Answer:** Yes — they are hoisted (registered in the scope), but NOT initialized, so they sit in TDZ until the declaration line.
@@ -542,11 +559,11 @@ add5(3); // 8 — 'x' found in outer scope via chain
 
 ### Scope Chain vs Prototype Chain
 
-| Feature | Scope Chain | Prototype Chain |
-|---|---|---|
-| Used for | Variable lookup | Property lookup on objects |
+| Feature   | Scope Chain      | Prototype Chain               |
+| --------- | ---------------- | ----------------------------- |
+| Used for  | Variable lookup  | Property lookup on objects    |
 | Traversal | Lexical (static) | Dynamic (runtime `__proto__`) |
-| End | Global scope | `null` |
+| End       | Global scope     | `null`                        |
 
 ### Real Interview Questions
 
@@ -733,10 +750,12 @@ function test2() {
 ### Real Interview Questions
 
 **Q1:** Is this valid?
+
 ```javascript
 var a = 1;
 let a = 2;
 ```
+
 **Answer:** No — `SyntaxError`. Both are in the same (global) scope.
 
 **Q2:** Why is it illegal for `var` to shadow `let`?
@@ -758,8 +777,8 @@ Closures happen **every time** a function is created in JavaScript. Every functi
 
 ### Where It Does NOT Apply
 
-- Pure standalone functions with no reference to outer variables (technically still closures, just trivial ones)
-- Variables that are not referenced by the inner function are NOT captured (V8 optimizes this)
+* Pure standalone functions with no reference to outer variables (technically still closures, just trivial ones)
+* Variables that are not referenced by the inner function are NOT captured (V8 optimizes this)
 
 ### Mental Model
 
@@ -965,6 +984,7 @@ function createClass() {
 **Answer:** A closure is a function that retains access to variables from its outer lexical scope even after that scope has finished executing.
 
 **Q2:** What is the output?
+
 ```javascript
 function outer() {
   let x = 10;
@@ -978,6 +998,7 @@ const fn = outer();
 fn(); // ?
 fn(); // ?
 ```
+
 **Answer:** `11` then `12` — both calls share the same `x` binding.
 
 **Q3:** How do closures cause memory leaks?
@@ -1033,6 +1054,7 @@ console.log(alice.greet()); // "Hi, I'm Alice"
 ```
 
 **What `new` does (step by step):**
+
 1. Creates a new empty object `{}`
 2. Sets `__proto__` to `Constructor.prototype`
 3. Calls the constructor with `this` = new object
@@ -1143,10 +1165,10 @@ A **factory function** is any function that returns an object — without using 
 
 ### Where They Apply
 
-- When you want private state (closures)
-- When you want to avoid `new` keyword issues
-- When you want to return different object types conditionally
-- Composition over inheritance scenarios
+* When you want private state (closures)
+* When you want to avoid `new` keyword issues
+* When you want to return different object types conditionally
+* Composition over inheritance scenarios
 
 ### Basic Factory Function
 
@@ -1239,10 +1261,10 @@ duck.quack(); // "Donald says quack"
 
 ### When to Use Factory Functions
 
-- Prefer when you need **private variables** (closures provide true privacy)
-- Prefer when you want **composition over inheritance**
-- Prefer when the `this` binding would be confusing
-- Avoid when you need `instanceof` checks or need to extend with `class`
+* Prefer when you need **private variables** (closures provide true privacy)
+* Prefer when you want **composition over inheritance**
+* Prefer when the `this` binding would be confusing
+* Avoid when you need `instanceof` checks or need to extend with `class`
 
 ---
 
@@ -1254,9 +1276,9 @@ duck.quack(); // "Donald says quack"
 
 ### Where It Applies
 
-- Pure functions (same inputs always produce same outputs)
-- Expensive computations (recursion, API calls, complex calculations)
-- Functions called repeatedly with the same arguments
+* Pure functions (same inputs always produce same outputs)
+* Expensive computations (recursion, API calls, complex calculations)
+* Functions called repeatedly with the same arguments
 
 ### Basic Memoization
 
@@ -1758,9 +1780,10 @@ console.log(counter.count); // undefined — truly private
 ### Modern Equivalent
 
 IIFE is less needed now with ES6 modules and `let`/`const`, but still useful for:
-- One-time initialization code
-- Avoiding variable name collisions in older environments
-- Creating scope in scripts without modules
+
+* One-time initialization code
+* Avoiding variable name collisions in older environments
+* Creating scope in scripts without modules
 
 ---
 
@@ -1769,6 +1792,7 @@ IIFE is less needed now with ES6 modules and `let`/`const`, but still useful for
 ### What It Means
 
 Functions in JavaScript are **first-class citizens** — they can be:
+
 1. Assigned to variables
 2. Passed as arguments to other functions
 3. Returned from functions
@@ -1812,11 +1836,12 @@ const actions = [
 ### Why This Matters
 
 First-class functions are the foundation of:
-- **Callbacks** (passing functions)
-- **Higher-order functions** (`map`, `filter`, `reduce`)
-- **Closures** (returning functions)
-- **Currying** (returning partially applied functions)
-- **Functional programming** patterns
+
+* **Callbacks** (passing functions)
+* **Higher-order functions** (`map`, `filter`, `reduce`)
+* **Closures** (returning functions)
+* **Currying** (returning partially applied functions)
+* **Functional programming** patterns
 
 ---
 
@@ -1824,12 +1849,12 @@ First-class functions are the foundation of:
 
 ### Types of Timers
 
-| Timer | Runs | Cleared By |
-|---|---|---|
-| `setTimeout(fn, ms)` | Once, after delay | `clearTimeout(id)` |
-| `setInterval(fn, ms)` | Repeatedly | `clearInterval(id)` |
-| `requestAnimationFrame(fn)` | Before next repaint | `cancelAnimationFrame(id)` |
-| `queueMicrotask(fn)` | End of current task (microtask) | — |
+| Timer                       | Runs                            | Cleared By                 |
+| --------------------------- | ------------------------------- | -------------------------- |
+| `setTimeout(fn, ms)`        | Once, after delay               | `clearTimeout(id)`         |
+| `setInterval(fn, ms)`       | Repeatedly                      | `clearInterval(id)`        |
+| `requestAnimationFrame(fn)` | Before next repaint             | `cancelAnimationFrame(id)` |
+| `queueMicrotask(fn)`        | End of current task (microtask) | —                          |
 
 ### setTimeout
 
@@ -1922,6 +1947,7 @@ while (Date.now() - start < 2000) {} // Blocks for 2 seconds
 ### What They Are
 
 A **Higher-Order Function** is a function that either:
+
 1. Takes one or more functions as arguments, OR
 2. Returns a function as its result
 
@@ -1989,8 +2015,8 @@ const timedSort = withTiming(Array.prototype.sort);
 
 ### `map` — Transform
 
-**What:** Creates a NEW array by transforming each element via a callback.  
-**Returns:** New array of same length.  
+**What:** Creates a NEW array by transforming each element via a callback.
+**Returns:** New array of same length.
 **Does NOT:** Mutate the original array.
 
 ```javascript
@@ -2037,7 +2063,7 @@ Array.from({length: 5}, (_, i) => i); // [0, 1, 2, 3, 4]
 
 ### `filter` — Select
 
-**What:** Creates a NEW array with only elements that pass a test.  
+**What:** Creates a NEW array with only elements that pass a test.
 **Returns:** New array of 0 to original length.
 
 ```javascript
@@ -2070,7 +2096,7 @@ arr.filter((val, idx, self) => self.indexOf(val) === idx); // [1, 2, 3, 4]
 
 ### `reduce` — Accumulate
 
-**What:** Reduces an array to a SINGLE value by applying a function against an accumulator.  
+**What:** Reduces an array to a SINGLE value by applying a function against an accumulator.
 **Returns:** Single value (any type).
 
 ```javascript
@@ -2141,6 +2167,7 @@ pipeline.reduce((val, fn) => fn(val), 5); // ((5+1)*2)-3 = 9
 **Answer:** `[1, NaN, NaN]` because `map` passes `(value, index)` to `parseInt`, so it becomes `parseInt("2", 1)` and `parseInt("3", 2)`, which are `NaN`.
 
 **Q2:** Implement `map` using `reduce`:
+
 ```javascript
 Array.prototype.myMap = function(fn) {
   return this.reduce((acc, val, idx, arr) => {
@@ -2151,6 +2178,7 @@ Array.prototype.myMap = function(fn) {
 ```
 
 **Q3:** Implement `filter` using `reduce`:
+
 ```javascript
 Array.prototype.myFilter = function(fn) {
   return this.reduce((acc, val, idx, arr) => {
@@ -2291,6 +2319,7 @@ class Timer {
 ### Real Interview Questions
 
 **Q1:** What is the output?
+
 ```javascript
 const obj = {
   x: 10,
@@ -2301,17 +2330,20 @@ const obj = {
 const { getX } = obj;
 console.log(getX()); // ?
 ```
+
 **Answer:** `undefined` (in non-strict) or `TypeError` (in strict). Destructuring loses the `this` binding.
 
 **Q2:** What does `bind` return?
 **Answer:** A new function with `this` permanently bound to the first argument. The original function is unchanged.
 
 **Q3:** Can you override a `bind`-ed `this` with `call`?
+
 ```javascript
 function foo() { console.log(this.x); }
 const bound = foo.bind({ x: 1 });
 bound.call({ x: 2 }); // ?
 ```
+
 **Answer:** `1` — `bind` takes priority over `call`. The bound `this` cannot be overridden.
 
 **Q4:** What is `this` in an arrow function?
@@ -2347,14 +2379,14 @@ const makeObj = (name) => ({ name, type: "user" });
 
 ### Key Differences from Regular Functions
 
-| Feature | Regular Function | Arrow Function |
-|---|---|---|
-| `this` | Dynamic (call-site) | Lexical (definition-site) |
-| `arguments` object | ✅ Has it | ❌ No (use `...args`) |
-| Constructor (`new`) | ✅ Can use | ❌ Cannot use |
-| `prototype` | ✅ Has it | ❌ No |
-| Generator (`function*`) | ✅ Can be | ❌ Cannot be |
-| Hoisting | Declaration: full | No (variable hoisting only) |
+| Feature                 | Regular Function    | Arrow Function              |
+| ----------------------- | ------------------- | --------------------------- |
+| `this`                  | Dynamic (call-site) | Lexical (definition-site)   |
+| `arguments` object      | ✅ Has it            | ❌ No (use `...args`)        |
+| Constructor (`new`)     | ✅ Can use           | ❌ Cannot use                |
+| `prototype`             | ✅ Has it            | ❌ No                        |
+| Generator (`function*`) | ✅ Can be            | ❌ Cannot be                 |
+| Hoisting                | Declaration: full   | No (variable hoisting only) |
 
 ### Arrow Functions and `this` — The Most Important Difference
 
@@ -2573,9 +2605,10 @@ add(1, "b");        // mixed — polymorphic site
 ### Lexical Scope in V8 (Technical Detail)
 
 At parse time, V8 creates a `ScopeInfo` for each function containing:
-- List of variables
-- Whether each is `var`, `let`, `const`
-- Whether variables are captured by inner functions (determines heap vs stack)
+
+* List of variables
+* Whether each is `var`, `let`, `const`
+* Whether variables are captured by inner functions (determines heap vs stack)
 
 At runtime, variables captured by closures are allocated in a **Context** (on the heap), not on the stack. This is why closures survive after the outer function returns.
 
@@ -2601,15 +2634,15 @@ function outer() {
 
 ### Where It Applies
 
-- Objects on the heap (closures, arrays, plain objects, DOM nodes, etc.)
-- Closed-over variables
-- Event listeners
-- Timers
+* Objects on the heap (closures, arrays, plain objects, DOM nodes, etc.)
+* Closed-over variables
+* Event listeners
+* Timers
 
 ### Where It Does NOT Apply
 
-- Stack-allocated primitives (automatically freed when the stack frame pops)
-- Values you explicitly keep referenced (they won't be GC'd as long as reference exists)
+* Stack-allocated primitives (automatically freed when the stack frame pops)
+* Values you explicitly keep referenced (they won't be GC'd as long as reference exists)
 
 ### Core Algorithm: Mark-and-Sweep
 
@@ -2791,39 +2824,80 @@ function visit(obj) {
 
 ### Variable Declarations at a Glance
 
-| | `var` | `let` | `const` |
-|---|---|---|---|
-| Scope | Function | Block | Block |
-| Hoisted | `undefined` | TDZ | TDZ |
-| Re-declare | ✅ | ❌ | ❌ |
-| Re-assign | ✅ | ✅ | ❌ |
-| Global `window` prop | ✅ | ❌ | ❌ |
+|                      | `var`       | `let` | `const` |
+| -------------------- | ----------- | ----- | ------- |
+| Scope                | Function    | Block | Block   |
+| Hoisted              | `undefined` | TDZ   | TDZ     |
+| Re-declare           | ✅           | ❌     | ❌       |
+| Re-assign            | ✅           | ✅     | ❌       |
+| Global `window` prop | ✅           | ❌     | ❌       |
 
 ### `this` Binding Rules
 
-| Call Type | `this` Value |
-|---|---|
+| Call Type          | `this` Value                    |
+| ------------------ | ------------------------------- |
 | Standalone `foo()` | `undefined` (strict) / `window` |
-| Method `obj.foo()` | `obj` |
-| `foo.call(ctx)` | `ctx` |
-| `new Foo()` | New object |
-| Arrow `() => {}` | Lexically inherited |
+| Method `obj.foo()` | `obj`                           |
+| `foo.call(ctx)`    | `ctx`                           |
+| `new Foo()`        | New object                      |
+| Arrow `() => {}`   | Lexically inherited             |
 
 ### Closure Capture Summary
 
-| Variable type | Captured? | Location |
-|---|---|---|
-| Referenced local | ✅ Yes | Heap (Context object) |
-| Unreferenced local | ❌ No | Stack (GC'd with frame) |
-| Parameters | ✅ If referenced | Heap |
+| Variable type      | Captured?       | Location                |
+| ------------------ | --------------- | ----------------------- |
+| Referenced local   | ✅ Yes           | Heap (Context object)   |
+| Unreferenced local | ❌ No            | Stack (GC'd with frame) |
+| Parameters         | ✅ If referenced | Heap                    |
 
 ### Memory Leak Checklist
 
-- [ ] Remove event listeners when component unmounts
-- [ ] Clear intervals/timeouts when no longer needed
-- [ ] Avoid capturing large objects in long-lived closures
-- [ ] Use `WeakMap`/`WeakSet` for DOM → data associations
-- [ ] Use `'use strict'` to prevent accidental globals
-- [ ] Null out large object references when done
+* [ ] Remove event listeners when component unmounts
+* [ ] Clear intervals/timeouts when no longer needed
+* [ ] Avoid capturing large objects in long-lived closures
+* [ ] Use `WeakMap`/`WeakSet` for DOM → data associations
+* [ ] Use `'use strict'` to prevent accidental globals
+* [ ] Null out large object references when done
 
 ---
+
+## ✅ Interview Add-ons (Added Without Deleting Anything)
+
+### Extra “Rapid Fire” One-Liners (Useful in interviews)
+
+* **TDZ:** “`let/const/class` are hoisted but uninitialized; accessing them before declaration throws `ReferenceError`.”
+* **Hoisting:** “Declarations are registered during compile phase; initializations happen during execution.”
+* **Closure:** “A function + its captured lexical environment; it keeps outer variables alive.”
+* **Scope chain:** “Variable lookup goes inner → outer → global; decided at definition time.”
+* **`this`:** “Call-site binding for normal functions; lexical binding for arrow functions.”
+* **GC:** “Reachability-based; if not reachable from roots, it’s collectible.”
+
+### Extra “Gotcha” Questions (High-frequency)
+
+```javascript
+// 1) TDZ + shadowing + typeof
+let a = 1;
+{
+  console.log(typeof a); // ReferenceError (TDZ because inner 'a' exists)
+  let a = 2;
+}
+
+// 2) this + arrow inside method
+const obj = {
+  x: 1,
+  f() {
+    return (() => this.x)(); // 1 (arrow inherits this from f)
+  }
+};
+
+// 3) reduce without initial value
+[ ].reduce((a,b)=>a+b); // TypeError
+```
+
+### Best Practice Summary (What interviewers want to hear)
+
+* Prefer `const` and keep variables as close as possible to where they are used (reduces TDZ surprises + improves readability).
+* Avoid `var` unless you’re maintaining legacy code.
+* Avoid capturing “heavy” objects in long-lived closures; always cleanup listeners/timers.
+* Use explicit blocks in `switch` when declaring `let/const` inside cases.
+* Avoid `eval` / `with` in production (security + performance + deopt).

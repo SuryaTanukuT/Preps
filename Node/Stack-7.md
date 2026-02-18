@@ -1,7 +1,6 @@
 V8 is Google's legendary open-source JavaScript engine, written in C++. If Node were a car, V8 would be the engine (hence the name). It’s the part that actually executes your JavaScript code. Its main jobs are as follwos -
 V8 grabs your raw JavaScript and, through a ridiculously smart Just-In-Time (JIT) compilation process, transforms it into highly optimized native machine code. It’s why modern JavaScript is so fast.Just like we saw, V8 is the strict manager of the single call stack, pushing and popping frames.V8 handles all the memory allocation for your objects and variables in a place called the heap. It's also the garbage collector, cleaning up messes you're done with.Now, here's what's absolutely critical to get: what V8 doesn't do. By itself, V8 is clueless about the outside world. It has no concept of a file system, it doesn't know how to open a network socket, and it has no idea how to set a timer. Functions like setTimeout, fs.readFile, and http.createServer? They aren't part of JavaScript or V8. They are APIs provided by browsers or, in our case, Node.js.
 
-Inside the **V8 JavaScript Engine** (high-level but “what actually happens”)
 ## 1) What V8 is
 V8 is the **JavaScript + WebAssembly engine** used by **Chrome** and **Node.js**. Its job is to:
 * Parse JS source → build an internal representation (AST / bytecode)* Execute it fast (interpreter + JIT compiler)* Manage memory (garbage collection)* Provide runtime support (objects, arrays, closures, prototypes, etc.)
@@ -64,8 +63,9 @@ To keep V8 happy:
 ## 8) Where Node.js fits (so you don’t mix responsibilities)
 * **V8** runs JS and gives you JS features.* **Node.js** provides event loop (libuv), FS, networking, timers, etc.* Promises/microtasks are integrated with the host, but V8 manages the **microtask queue** mechanism; Node decides when to drain it in its loop phases.
 
-Perfect, Surya — this is **core backend + Node.js internals + async design** knowledge. I’ll break it into **two clear parts**:
-1. **Blocking vs Non-Blocking**2. **Callbacks — types, usage, pros/cons, and modern alternatives**
+
+
+
 ---
 # 1. Blocking vs Non-Blocking — Clear Explanation
 ---

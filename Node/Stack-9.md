@@ -334,7 +334,6 @@ controller.abort();
 
 ---
 
-Perfect — these **three async flow patterns (Serial, Parallel, Waterfall)** are *must-know* for **backend design, performance tuning, and senior Node.js interviews**. Let’s break them **clearly, visually, and practically**.
 
 ---
 
@@ -636,12 +635,11 @@ Fix → **Throttle concurrency**
 > **Waterfall = Pass the Result Down**
 
 ---
-
-Perfect, Surya — **Generators** are one of those *“looks simple, but very powerful”* JavaScript features that senior engineers use for **lazy execution, async flow control, streaming, and complex state machines**. Let’s break them cleanly.
-
 ---
 
 # ⚙️ JavaScript Generators — Clear & Practical Guide
+https://medium.com/@ignatovich.dm/understanding-javascript-generators-with-practical-examples-947ab3d89421
+https://medium.com/@segersian/howto-async-generators-in-nodejs-c7f0851f9c02
 
 ![Image](https://miro.medium.com/v2/resize%3Afit%3A1400/1%2Ar9VkvgSUGciAQmzntuxB3Q.png)
 
@@ -954,11 +952,10 @@ function* pipe(data) {
 
 ---
 
-Perfect, Surya — **Event Emitters** are *foundational* for **Node.js internals, microservices, streaming systems, and real-time backends**. Let’s break them clearly from **concept → mechanics → patterns → production pitfalls**.
-
 ---
 
 # 📣 Event Emitters in Node.js — Complete & Practical Guide
+https://dev.to/imsushant12/mastering-event-driven-programming-with-the-eventemitter-in-nodejs-38kd
 
 ![Image](https://cdn-media-1.freecodecamp.org/images/sPkTz3OExo-FXteQwtFkoDVQmZeFfHE56-WJ)
 
