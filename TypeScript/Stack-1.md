@@ -1,6 +1,6 @@
 https://www.typescriptlang.org/docs/
 https://github.com/Devinterview-io/typescript-interview-questions
-
+https://www.w3schools.com/typescript/typescript_enums.php
 # TypeScript (High-Level Interview + Practical Notes)
 
 TypeScript = JavaScript + types (with tooling support).
