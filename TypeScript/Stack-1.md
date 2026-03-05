@@ -675,7 +675,6 @@ Interview Insight:
 
 ---
 
-# TypeScript in Node.js Projects
 
 TypeScript works at development time.
 
@@ -703,7 +702,6 @@ Node executes
 
 ---
 
-# Ways to Run TypeScript in Node
 
 ## Method 1 — Compile & Run
 
@@ -727,7 +725,7 @@ npx ts-node src/app.ts
 ---
 
 # Where TypeScript Is Used in Node Projects
-
+Why TypeScript Is Extremely Popular in Node Backends
 * API Models / DTOs
 * Request & response validation
 * Service layer contracts
